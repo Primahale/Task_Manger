@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api"; // Backend URL
+const API_BASE_URL = "https://task-manger-yar3.onrender.com/api"; // Backend URL
 
-const API_URL = "http://localhost:5000/api/tasks";
+const API_URL = "https://task-manger-yar3.onrender.com/api/tasks";
 
 // Setup Axios instance
 const api = axios.create({
