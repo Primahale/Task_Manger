@@ -11,8 +11,24 @@ const app = express();
 connectDB();
 
 app.use(express.json());
-app.use(cors({ origin: "https://task-manger-eight-tau.vercel.app/" }));
 
+const allowedOrigins = [
+  "http://localhost:3000", // Local development
+  "https://task-manger-eight-tau.vercel.app", // Deployed frontend on Vercel
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+)
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
