@@ -11,7 +11,7 @@ const app = express();
 connectDB();
 
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: "https://task-manger-eight-tau.vercel.app/" }));
 
 
 app.use((err, req, res, next) => {
